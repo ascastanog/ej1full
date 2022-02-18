@@ -1,0 +1,88 @@
+h3
+{
+  font-weight: bold !important;
+  font-size: 1.8rem;
+}
+main section
+{
+  margin-bottom: 0.5rem;
+  padding: 1rem 0;
+  box-shadow: 0em 0.1em 3px 1px black;
+
+  display: flex;
+}
+form .row
+{
+  margin: 1rem 0 !important;
+}
+p
+{
+  margin: 0 !important;
+  padding: 0.375rem 0.75rem !important;
+}
+p,input,select,label
+{
+  font-size: 0.9rem;
+}
+label
+{
+  color: black;
+}
+.modificando
+{
+  text-align: right;
+}
+
+.modificando .btn
+{
+  border-radius: 0rem !important;
+}
+.modificando .btn-success
+{
+  border-radius: 0.25rem 0 0 0.25rem !important;
+}
+.modificando .btn-dark
+{
+  border-radius: 0 0.25rem 0.25rem 0 !important;
+}
+.toast
+{
+  display: block !important;
+}
+.toast i
+{
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+}
+.toast-header
+{
+  background-color: #0326a8;
+}
+.toast-header strong
+{
+  color: black;
+}
+.toast-body
+{
+  color: black;
+  background-color: white;
+}
+#toast
+{
+  z-index: 1400;
+  bottom: 10vh;
+  left: 70vw;
+  position: fixed;
+}
+@media (max-width:550px)
+{
+  .col-50
+  {
+    width: 100%!important;
+  }
+  .col-25
+  {
+    width: 100%!important;
+  }
+}

@@ -8,13 +8,19 @@ import { FormularioComponent } from './components/formulario/formulario.componen
 import {HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
 import { ModalComponent } from './components/shared/modal/modal.component';
+import { ListadoUsuarioComponent } from './components/listado-usuario/listado-usuario.component';
+import { FormularioUsuarioComponent } from './components/formulario-usuario/formulario-usuario.component';
+import { NavBarComponent } from './components/shared/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListadoComponent,
     FormularioComponent,
-    ModalComponent
+    ModalComponent,
+    ListadoUsuarioComponent,
+    FormularioUsuarioComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
