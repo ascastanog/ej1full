@@ -6,6 +6,7 @@ import {FormularioComponent} from "./components/formulario/formulario.component"
 const routes: Routes = [
   {path:"listado", component:ListadoComponent},
   {path:"formulario/:id", component:FormularioComponent},
+  {path:"formulario", component:FormularioComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'listado' }
 ];
 

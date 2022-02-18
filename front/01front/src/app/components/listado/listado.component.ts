@@ -58,4 +58,9 @@ export class ListadoComponent implements OnInit {
   {
     this.router.navigate(['/formulario', id]);
   }
+
+  crear(){
+    this.router.navigate(['/formulario']);
+  }
+
 }

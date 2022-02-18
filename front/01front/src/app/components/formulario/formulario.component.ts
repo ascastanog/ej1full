@@ -26,9 +26,12 @@ export class FormularioComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,private router:Router,private api:ApiService,private formBuilder: FormBuilder,private serviceForm:FormularioService)
   {
+
     this.activatedRoute.params.subscribe(parametros =>
     {
-      this.id=parametros['id']
+      this.id=parametros['id'];
+     if(parametros['id']!=undefined){
+
       this.api.getQuery(`api/clientes/${this.id}`)
         .subscribe(data =>
         {
@@ -43,6 +46,10 @@ export class FormularioComponent implements OnInit {
         {
           console.log(errorServicio);
         });
+     }else {
+       this.crearFormulario();
+       this.modificar=!this.modificar;
+     }
     })
   }
 
@@ -80,56 +87,49 @@ export class FormularioComponent implements OnInit {
   guardar(formGrupo: FormGroup)
   {
     console.log(formGrupo)
-    if (!formGrupo.parent)
-    {
-      if (this.serviceForm.tomarDatos(formGrupo))
-      {
-        this.datosCambiados = this.serviceForm.Datos;
-        //asi traemos los datos del formulario si es todo valido
-        this.api.putQuery(`api/clientes/${this.id}`,this.datosCambiados)
-          .subscribe(data =>
-            {
+    if (!formGrupo.parent) {
+      if (this.serviceForm.tomarDatos(formGrupo)) {
 
+        this.datosCambiados = this.serviceForm.Datos;
+
+        if (this.id != undefined) {
+
+          //asi traemos los datos del formulario si es todo valido
+          this.api.putQuery(`api/clientes/${this.id}`, this.datosCambiados)
+            .subscribe(data => {
+
+                this.router.navigate(['/listado']);
+
+              }
+              , async (errorServicio) => {
+                console.log(errorServicio);
+              });
+        }else {
+          this.api.postQuery('api/clientes/',this.datosCambiados)
+            .subscribe(data => {
               this.router.navigate(['/listado']);
-              // this.api.getQuery(`api/clientes/${this.id}`)
-              // .subscribe(data =>
-              //   {
-              //     this.datos = data;
-              //     // this.loading=false;
-              //     this.crearFormulario();
-              //     this.cargarDatosFormulario();
-              //     console.log(this.datos)
-              //   }
-              //   , async (errorServicio) =>
-              //   {
-              //     console.log(errorServicio);
-              //   });
-              // this.cambiarToast(true);
-              // this.modificarInput();
-              // console.log(this.datos)
             }
-            , async (errorServicio) =>
-            {
+            , async (errorServicio) => {
               console.log(errorServicio);
             });
+
+
+        }
+
+        } else {
+          this.cambiarToast(false);
+        }
       }
-      else
-      {
-        this.cambiarToast(false);
+      //lee todo los valores
+      if (formGrupo.invalid) {
+        Object.values(formGrupo.controls).forEach(control => {
+          if (control instanceof FormGroup)
+            this.guardar(control);
+          control.markAsTouched();
+        })
+        return;
       }
     }
-    //lee todo los valores
-    if (formGrupo.invalid) {
-      Object.values(formGrupo.controls).forEach(control => {
-        if (control instanceof FormGroup)
-          this.guardar(control);
-        control.markAsTouched();
-      })
-      return;
-    }
-
-  }
-
 
   get Datos() {
     return this.datos;
