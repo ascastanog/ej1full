@@ -1,0 +1,90 @@
+<form autocomplete="off" [formGroup]="forma" (ngSubmit)="guardar(forma)">
+
+  <div class="form-group row">
+    <label class="col-4 col-form-label">Nombre</label>
+    <div class="col ">
+      <input [readOnly]="!modificar"
+             formControlName="nombre"
+             type="text"
+             placeholder="Manuel"
+             class="form-control"
+             [class.is-invalid]="!valido('nombre')"/>
+
+      <small class="text-danger"
+             *ngIf="!valido('nombre')">
+        Nombre invalido, debe de ser mayor de 3 caracteres
+      </small>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-4 col-form-label">Apellidos</label>
+    <div class="col ">
+      <input [readOnly]="!modificar"
+             formControlName="apellido"
+             type="text"
+             placeholder="Solis Gomez"
+             class="form-control"
+             [class.is-invalid]="!valido('apellido')"/>
+
+      <small class="text-danger"
+             *ngIf="!valido('apellido')">
+        Apellidos invalido, debe de ser mayor de 3 caracteres
+      </small>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-4 col-form-label">Email</label>
+    <div class="col ">
+      <input [readOnly]="!modificar"
+             formControlName="email"
+             type="text"
+             placeholder="ejemplo@gmail.com"
+             class="form-control"
+             [class.is-invalid]="!valido('email')"/>
+
+      <small class="text-danger"
+             *ngIf="!valido('email')">
+        Requiere un correo valido
+      </small>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div *ngIf="modificar" class="col modificando">
+      <app-modal></app-modal>
+      <button type="reset"
+              class="btn btn-primary" >
+        Vaciar
+      </button>
+      <button (click)="resetear()"
+              type="button"
+              class="btn btn-dark" >
+        Resetear
+      </button>
+    </div>
+    <div *ngIf="!modificar" class="col ">
+      <button type="button"
+              class="btn btn-outline-warning"
+              (click)="modificarInput()">
+        Modificar
+      </button>
+    </div>
+  </div>
+
+</form>
+
+
+<div id="toast"  *ngIf="toast">
+  <div class="toast" role="alert">
+    <div class="toast-header">
+      <i class="{{infoToast.icono}} me-2"></i>
+      <strong class="me-auto">{{infoToast.titulo}} </strong>
+      <button type="button" class="btn-close" (click)="toast =! toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      {{infoToast.mensaje}}
+    </div>
+  </div>
+</div>
