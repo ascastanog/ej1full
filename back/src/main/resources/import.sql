@@ -8,5 +8,12 @@ INSERT INTO cliente (nombre, apellido, email, created_at) VALUES ('Ralph', 'John
 INSERT INTO cliente (nombre, apellido, email, created_at) VALUES ('John', 'Vlissides', 'john.vlissides@gmail.com', '2018-02-28');
 INSERT INTO cliente (nombre, apellido, email, created_at) VALUES ('Dr. James', 'Gosling', 'james.gosling@gmail.com', '2018-03-03');
 INSERT INTO cliente (nombre, apellido, email, created_at) VALUES ('Magma', 'Lee', 'magma.lee@gmail.com', '2018-03-04');
-INSERT INTO cliente (nombre, apellido, email, created_at) VALUES ('Tornado', 'Roe', 'tornado.roe@gmail.com', '2018-03-05');
-INSERT INTO cliente (nombre, apellido, email, created_at) VALUES ('Jane', 'Doe', 'jane.doe@gmail.com', '2018-03-06');
+INSERT INTO usuario (nombre, apellido, email, created_at) VALUES ('User1', 'Roe', 'tornado.roe@gmail.com', '2018-03-05');
+INSERT INTO usuario (nombre, apellido, email, created_at) VALUES ('Jane', 'Doe', 'jane.doe@gmail.com', '2018-03-06');
+INSERT INTO usuario (nombre, apellido, email, created_at) VALUES ('Richard', 'Helm', 'richard.helm@gmail.com', '2018-02-10');
+INSERT INTO usuario (nombre, apellido, email, created_at) VALUES ('Ralph', 'ASHHSA', 'ralph.johnson@gmail.com', '2018-02-18');
+INSERT INTO usuario (nombre, apellido, email, created_at) VALUES ('John', 'Vlissides', 'john.vlissides@gmail.com', '2018-02-28');
+INSERT INTO usuario (nombre, apellido, email, created_at) VALUES ('Dr. SDF', 'Gosling', 'james.gosling@gmail.com', '2018-03-03');
+INSERT INTO usuario (nombre, apellido, email, created_at) VALUES ('Magma', 'Lee', 'magma.lee@gmail.com', '2018-03-04');
+INSERT INTO usuario (nombre, apellido, email, created_at) VALUES ('Tornado', 'Roe', 'tornado.roe@gmail.com', '2018-03-05');
+INSERT INTO usuario (nombre, apellido, email, created_at) VALUES ('UserUlt', 'Doe', 'jane.doe@gmail.com', '2018-03-06');
